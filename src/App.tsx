@@ -1,13 +1,24 @@
-import './App.css'
-import Login from './pages/login/Login'
+import "./App.css";
+import Contador from "./pages/contador/Contador";
+import Home from "./pages/home/Home";
+import Login from "./pages/login/Login";
+import Tarefa from "./pages/tarefa/Tarefa";
 
 function App() {
+    return (
+        <>
+            <Home
+                titulo="Turma Java 85"
+                texto="A Turma java 85 está cursando o Bloco 03 "
+            />
 
-  return (
-    <>
-      <Login />
-    </>
-  )
+            <Contador />
+
+            <Tarefa />
+
+            <Login />
+        </>
+    );
 }
 
-export default App
+export default App;
