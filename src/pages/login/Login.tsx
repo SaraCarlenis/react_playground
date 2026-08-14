@@ -1,27 +1,32 @@
 import { useState } from "react";
 import Home from "../home/Home";
+import Contador from "../contador/Contador";
 
 function Login() {
-
-    const [isLogged, setIsLogged] = useState(false);
+    const [isLogged, setIsLogged] = useState<boolean>(false);
 
     return (
-        <>
-            {
-                isLogged ? (
+        <div>
+            {/* Equivalente ao if simples */}
+            {isLogged && <Contador />}
+
+            {/* Equivalente o if/else */}
+            {isLogged ? (
+                <>
                     <Home
-                        titulo="Componente Home"
-                        texto="Bem-vindo de Volta!"
+                        titulo="Usuário Autenticado"
+                        texto="Sara, Seja Bem-Vinda!"
                     />
-                ) : (
-                    <div>
-                        <h2>Componente Login</h2>
-                        <button onClick={() => setIsLogged(true)}>Entrar</button>
-                    </div>
-                )
-            }
-        </>
-    )
+                    <button onClick={() => setIsLogged(false)}>Logout</button>
+                </>
+            ) : (
+                <>
+                    <h1>Login</h1>
+                    <button onClick={() => setIsLogged(true)}>Entrar</button>
+                </>
+            )}
+        </div>
+    );
 }
 
-export default Login
+export default Login;
